@@ -1,1 +1,2 @@
-# KAC_Chan
+# KAC-Chan
+KAC Chan
