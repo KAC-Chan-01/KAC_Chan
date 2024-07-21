@@ -142,4 +142,4 @@ class RmAnnivButton(discord.ui.View):
                 break
 
 
-
+#pari na kichu T_T
