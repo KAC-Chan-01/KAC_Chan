@@ -9,10 +9,10 @@ class Roles(View):
     def __init__(self):
         super().__init__(timeout=None)
         select = Select(custom_id="select_roles", placeholder="Select Roles down here", min_values=0, max_values=4, options=[
-            SelectOption(label="Updates",value='1', description="Role to get Updates about upcoming announcements.",       emoji="🙂"),
-            SelectOption(label="Games",  value='2', description="Role to get access to Games Channel and its Voice Chats", emoji="🎮"),
-            SelectOption(label="Waifu",  value='3', description="Role to get access to Waifu Collector and its events",    emoji="💗"),
-            SelectOption(label="Paimon", value='4', description="Role to get access to Genshin and Honkai Impact channels",emoji="🍤")
+            SelectOption(label="Updates",value='1', description="No more @everyone pings. Choose role for updates.",    emoji="🙂"),
+            SelectOption(label="Games",  value='2', description="For games channel access and game notifications.", emoji="🎮"),
+            SelectOption(label="Waifu",  value='3', description="Harem Collector notifications.", emoji="💗"),
+            SelectOption(label="Paimon", value='4', description="Hoyoverse pings, gift codes, updates.",    emoji="🔱")
         ])
         select.callback = self.dropdown_callback
         self.add_item(select)
@@ -36,6 +36,7 @@ class Roles(View):
 
             if role:
                 await interaction.user.add_roles(role)
+                await interaction.followup.send(f"Role Added : {role}", ephemeral= True)
 
         for value in missing_set:
             role = None
@@ -50,8 +51,8 @@ class Roles(View):
 
             if role:
                 await interaction.user.remove_roles(role)
+                await interaction.followup.send(f"Role Removed : {role}", ephemeral= True)
 
-        await interaction.followup.send("Roles updated!", ephemeral=True)
 
 
 
