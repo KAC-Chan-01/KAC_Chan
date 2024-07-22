@@ -128,13 +128,13 @@ async def say(interaction: discord.Interaction, say: str, where: discord.TextCha
 
 
 @client.tree.command(name="roles", description="Get your basic roles here")
-@app_commands.describe(title="Where you want to say")
-@app_commands.describe(message="Where you want to say")
 @app_commands.describe(channel="What you want to say")
-async def roles(interaction: discord.Interaction, title:str, message:str, channel:discord.TextChannel):
+async def roles(interaction: discord.Interaction, channel:discord.TextChannel):
     await interaction.response.defer(ephemeral= True)
     if interaction.user.guild_permissions.administrator:
-        embed = discord.Embed(title=title, description=message, color=discord.Color(0xBD0028))
+        message = "# Basic Roles\n# ✦ Select your Roles.\n-# Please choose the roles you require from the dropdown menu below and deselect them when no longer needed.\n- Updates\n-# To accommodate everyone's preferences regarding announcements, we will discontinue the use of @everyone pings going forward. Please select this role to receive future updates.\n- Games\n-# To obtain the Games role, please select it below to unlock access to the games channel. This role will also be used to notify you about any games being played on the server.\n- Waifu\n-# You may also select this if you wish to receive notifications for Harem Collector. This will assign you a new role dedicated to updates related to those channels.\n- Paimon\n-# Select this role to receive the Paimon role, which includes Hoyoverse-related pings such as gift codes and updates."
+        embed = discord.Embed(description=message, color=discord.Color(0xBD0028))
+        embed.set_footer(text=f"{interaction.guild.name}", icon_url=interaction.guild.icon.url)
         await channel.send(embed=embed, view=Roles())
         return await interaction.followup.send(f"Sent")
     else:
