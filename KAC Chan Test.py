@@ -55,7 +55,10 @@ async def on_guild_remove(guild):
 @client.tree.command(name="hello", description="Simple hello command")
 @app_commands.describe(your_name = "Enter your Name")
 async def hello(interaction: discord.Interaction, your_name:str):
-    return await interaction.response.send_message(f"hello {your_name}", ephemeral= True)
+    if interaction.user.guild_permissions.administrator:    
+        return await interaction.response.send_message(f"hello {your_name}", ephemeral= True)
+    else:
+        return await interaction.response.send_message(f"You can't use that", ephemeral= True)
 
 
 
@@ -120,7 +123,6 @@ async def getuserpic(interaction: discord.Interaction, user:discord.User):
 @app_commands.describe(where="Where you want to say")
 async def say(interaction: discord.Interaction, say: str, where: discord.TextChannel):
     if interaction.user.guild_permissions.administrator:
-        await where.send(say)
         await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
     else:
         await interaction.response.send_message("Nikal beh", ephemeral=True)
