@@ -123,6 +123,7 @@ async def getuserpic(interaction: discord.Interaction, user:discord.User):
 @app_commands.describe(where="Where you want to say")
 async def say(interaction: discord.Interaction, say: str, where: discord.TextChannel):
     if interaction.user.guild_permissions.administrator:
+        await where.send(say)
         await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
     else:
         await interaction.response.send_message("Nikal beh", ephemeral=True)
