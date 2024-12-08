@@ -182,7 +182,7 @@ async def toss(interaction: discord.Interaction):
 
 
 
-client.run(dotenv_values("/home/server/Desktop/Project/token/token.env")["KAC_CHAN"])
+client.run(dotenv_values("/home/server/Programs/token/token.env")["KAC_CHAN"])
 
 
 

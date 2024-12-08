@@ -183,7 +183,7 @@ client.run(dotenv_values("token.env")["BOT_TOKEN"])
 
 
 #/home/shubhojit/Euphie/token.env
-#/home/server/Desktop/Project/token/token.env
+#/home/server/Programs/token/token.env
 
 
 
