@@ -8,7 +8,7 @@ from discord.ext import commands
 from discord.utils import get
 import io
 import math
-import motor.motor_asyncio
+#import motor.motor_asyncio
 import os
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageColor, ImageStat
 from sushii import BasicRolesButton,AnnivRolesButton, RmAnnivButton
@@ -182,7 +182,7 @@ async def toss(interaction: discord.Interaction):
 
 
 
-client.run(dotenv_values("/home/shubhojit/token/token.env")["KAC_CHAN"])
+client.run(dotenv_values("/home/server/Desktop/Project/token/token.env")["KAC_CHAN"])
 
 
 
