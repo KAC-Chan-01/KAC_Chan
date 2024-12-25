@@ -119,7 +119,7 @@ async def getuserpic(interaction: discord.Interaction, user:discord.User):
         return await interaction.response.send_message(f"You dont have permission for this command", ephemeral= True)
 
 
-@client.tree.command(name="say", description="Play Music")
+@client.tree.command(name="say", description="Say in particular Channel")
 @app_commands.describe(say="What you want to say")
 @app_commands.describe(where="Where you want to say")
 async def say(interaction: discord.Interaction, say: str, where: discord.TextChannel):
@@ -158,6 +158,14 @@ async def annivbuttons(interaction: discord.Interaction,channel:discord.TextChan
     await interaction.response.send_message(content=f'Message sent in {channel.mention}')
 
 
+@client.tree.command(name="say_christmass", description="Send a Christmass")
+@app_commands.describe(where="Where you want to say")
+async def say_christmass(interaction: discord.Interaction, where: discord.TextChannel):
+    if interaction.user.guild_permissions.administrator:
+        await where.send(f"<@&673276401037606961>\n-# <a:1PadoruPadoru:643947472070115347> \n**MERRY CHRISTMAS FROM KOLKATA ANIME CLUB**\nMay your festive spirit shine brighter than the stars, and your days be filled with laughter as pure as the first snow!\n\nFor the next 2 weeks, you can get the **Padoru** role by typing **!Padoru** in the chat.\n\n-# ✦ Also, have a look at <#1321545163813949523> when it's ready. :eyes:")
+        await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
+    else:
+        await interaction.response.send_message("Nikal beh", ephemeral=True)
 
 
 # GAME COMMANDS ################################################################################################################################################################
