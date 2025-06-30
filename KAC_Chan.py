@@ -189,7 +189,7 @@ async def toss(interaction: discord.Interaction):
 
 
 
-client.run(dotenv_values("/root/KAC_Chan/token.env")["KAC_CHAN"])
+client.run(dotenv_values("/root/KAC_Chan/token.env")["BOT_TOKEN"])
 
 
 
