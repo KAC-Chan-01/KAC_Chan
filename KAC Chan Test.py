@@ -52,11 +52,11 @@ async def on_guild_remove(guild):
 
 # TEST ##########################################################################################################################################################################
 
-@client.tree.command(name="hello", description="Simple hello command")
+@client.tree.command(name="hello", description="Simple Test Command")
 @app_commands.describe(your_name = "Enter your Name")
 async def hello(interaction: discord.Interaction, your_name:str):
     if interaction.user.guild_permissions.administrator:    
-        return await interaction.response.send_message(f"hello {your_name}", ephemeral= True)
+        return await interaction.response.send_message(f"Hello {your_name}", ephemeral= True)
     else:
         return await interaction.response.send_message(f"You can't use that", ephemeral= True)
 
@@ -109,7 +109,7 @@ async def getuser(interaction: discord.Interaction, user:discord.User):
         return await interaction.response.send_message(f"You dont have permission for this command", ephemeral= True)
 
 
-@client.tree.command(name="getuserpic", description="Get's Users Pic")
+@client.tree.command(name="getuserpic", description="Get's that sweet picture of an member")
 @app_commands.describe(user= "Select User")
 async def getuserpic(interaction: discord.Interaction, user:discord.User):
     if interaction.user.guild_permissions.administrator:
@@ -118,7 +118,7 @@ async def getuserpic(interaction: discord.Interaction, user:discord.User):
         return await interaction.response.send_message(f"You dont have permission for this command", ephemeral= True)
 
 
-@client.tree.command(name="say", description="Play Music")
+@client.tree.command(name="say", description="Say as if you're the bot")
 @app_commands.describe(say="What you want to say")
 @app_commands.describe(where="Where you want to say")
 async def say(interaction: discord.Interaction, say: str, where: discord.TextChannel):
@@ -157,7 +157,7 @@ async def annivbuttons(interaction: discord.Interaction,channel:discord.TextChan
     await interaction.response.send_message(content=f'Message sent in {channel.mention}')
 
 
-@client.tree.command(name="say_christmass", description="Send a Christmass")
+@client.tree.command(name="say_christmass", description="Christmass Wishes")
 @app_commands.describe(where="Where you want to say")
 async def say_christmass(interaction: discord.Interaction, where: discord.TextChannel):
     if interaction.user.guild_permissions.administrator:
@@ -165,6 +165,9 @@ async def say_christmass(interaction: discord.Interaction, where: discord.TextCh
         await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
     else:
         await interaction.response.send_message("Nikal beh", ephemeral=True)
+
+
+
 
 
 

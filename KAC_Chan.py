@@ -62,7 +62,6 @@ async def hello(interaction: discord.Interaction, your_name:str):
 
 
 
-
 # VC COMMANDS ##################################################################################################################################################################
 
 @client.tree.command(name="join", description="Join's users voice channel")
@@ -110,7 +109,7 @@ async def getuser(interaction: discord.Interaction, user:discord.User):
         return await interaction.response.send_message(f"You dont have permission for this command", ephemeral= True)
 
 
-@client.tree.command(name="getuserpic", description="Get's Users Pic")
+@client.tree.command(name="getuserpic", description="Get's that sweet picture of an member")
 @app_commands.describe(user= "Select User")
 async def getuserpic(interaction: discord.Interaction, user:discord.User):
     if interaction.user.guild_permissions.administrator:
@@ -119,7 +118,7 @@ async def getuserpic(interaction: discord.Interaction, user:discord.User):
         return await interaction.response.send_message(f"You dont have permission for this command", ephemeral= True)
 
 
-@client.tree.command(name="say", description="Say in particular Channel")
+@client.tree.command(name="say", description="Say as if you're the bot")
 @app_commands.describe(say="What you want to say")
 @app_commands.describe(where="Where you want to say")
 async def say(interaction: discord.Interaction, say: str, where: discord.TextChannel):
@@ -158,7 +157,7 @@ async def annivbuttons(interaction: discord.Interaction,channel:discord.TextChan
     await interaction.response.send_message(content=f'Message sent in {channel.mention}')
 
 
-@client.tree.command(name="say_christmass", description="Send a Christmass")
+@client.tree.command(name="say_christmass", description="Christmass Wishes")
 @app_commands.describe(where="Where you want to say")
 async def say_christmass(interaction: discord.Interaction, where: discord.TextChannel):
     if interaction.user.guild_permissions.administrator:
@@ -166,6 +165,10 @@ async def say_christmass(interaction: discord.Interaction, where: discord.TextCh
         await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
     else:
         await interaction.response.send_message("Nikal beh", ephemeral=True)
+
+
+
+
 
 
 # GAME COMMANDS ################################################################################################################################################################
@@ -177,10 +180,6 @@ async def toss(interaction: discord.Interaction):
         return await interaction.response.send_message("Heads", delete_after= 180)
     else:
         return await interaction.response.send_message("Tails", delete_after= 180)
-
-
-
-
 
 
 

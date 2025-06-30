@@ -1,0 +1,38 @@
+@client.tree.command(name="winners", description="post winners")
+@app_commands.describe(where="Where you want to say")
+async def say_christmass(interaction: discord.Interaction, where: discord.TextChannel):
+    if interaction.user.guild_permissions.administrator:
+        file_path = 'kac24beta.png'
+        with open(file_path, 'rb') as f:
+            file = discord.File(f)
+        await where.send(f"Hey there. <a:1reachhigh:645651317649571870> \nAs **2024** draws to a close, we hope your holiday season—complete with a touch of <a:1PadoruPadoru:643947472070115347> magic—was nothing short of extraordinary! :christmas_tree::sparkles: \n\n<:IridescentSakuradite:945725720724897842> *The image is best viewed from your browser. •  Stats as on 25th December*<:IridescentSakuradite:945725720724897842> \n\nIllustration by [**Ask**](https://www.pixiv.net/en/users/1980643)")
+        await where.send(file= file)
+        await where.send(f"Congratulations to the new winners of \n• <@&655560943455174699> ː <@720130596247961611>\n• <@&1052686626368786574> ː <@435812068290199553>\n• <@&655557973501804545> ː <@373921880459051008>")
+        await interaction.response.send_message(f"Message sent to {where.mention}.", ephemeral=True)
+    else:
+        await interaction.response.send_message("Nikal beh", ephemeral=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

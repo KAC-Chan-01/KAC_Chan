@@ -1,0 +1,7 @@
+aiohttp
+asyncio 
+python-dotenv
+discord.py
+motor
+pillow
+
